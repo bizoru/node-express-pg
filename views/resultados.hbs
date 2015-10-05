@@ -1,0 +1,38 @@
+{{#if estado}}
+   
+   <div class="alert alert-success" role="alert">La consulta se ha ejecutado satisfactoriamente, Descripcion del sistema: {{mensaje}}</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			{{#each columnas}}
+			
+             <th>{{this}}<th>
+		   
+ 	        {{/each}}
+			</tr>
+	   </thead>
+	   <tbody>
+		   
+
+{{#each consulta.resultados}}
+        <tr>
+		{{#each this}}		
+            <td>{{this}}</td>
+  		{{/each}}
+		 </tr>
+
+      
+
+{{else}}
+	<div class="alert alert-danger" role="alert">No se encontraron registros para la consulta solicitada</div>			
+{{/each}}
+      </tbody>
+ 	</table>
+
+{{else}}
+
+    <div class="alert alert-danger" role="alert">Hay un error con la consulta, Descripcion del Sistema: {{mensaje}}</div>
+
+{{/if}}
+
+
