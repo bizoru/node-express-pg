@@ -8,7 +8,7 @@ app.engine('hbs', handlebars.engine);
 app.set('view engine', 'hbs');
 
 var status = {
-	'appname':'node-test-app'
+	'appname':'hola mundo!'
 };
 
 app.use('/static', express.static('node_modules/bootstrap/dist'));
@@ -24,6 +24,8 @@ app.get('/', function (req,res){
 	console.log(req.acceptedLanguages);
 	
 	//res.send('Hello world baby');
+    console.log(req.query);
+	status['request'] = req.query;
 	res.json(status);
 	
 });
@@ -43,7 +45,8 @@ app.post('/consulta',function(req,res){
    
 	db.traerResultados(consulta, function(consulta){
         var columnas = [];
-		if(consulta.resultados.length != 0){
+
+        if(consulta.resultados.length != 0){
 			columnas = Object.keys(consulta.resultados[0]);
 		}
 		

@@ -1,5 +1,5 @@
 var pg = require('pg');
-var conString = "postgres://webapp:webapp@localhost/taxisint";
+var conString = "postgres://root:root@localhost/taxisint";
 
 
 var traerResultados = function(query, cb) {
